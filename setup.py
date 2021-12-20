@@ -1,11 +1,6 @@
 import pathlib
 from setuptools import setup
 
-# The directory containing this file
-HERE = pathlib.Path(__file__).parent
-
-# The text of the README file
-README = (HERE / "README.md").read_text(encoding='utf8')
 
 # This call to setup() does all the work
 setup(
@@ -15,8 +10,6 @@ setup(
         "A Python Template manager for your discord bot to keep your embeds"
         " simple & consistent. "
     ),
-    long_description=README,
-    long_description_content_type="text/markdown",
     url="https://github.com/Sigmanificient/Embed-Templator",
     author="Sigmanificient",
     author_email="edhyjox@gmail.com",
