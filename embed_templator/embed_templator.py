@@ -130,7 +130,7 @@ class Embed(disnake.Embed):
 
             self.set_author(
                 name=self.ctx.author,
-                icon_url=self.ctx.author.avatar_url
+                icon_url=self.ctx.author.avatar.url
             )
 
         self.update()
