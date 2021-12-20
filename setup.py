@@ -29,5 +29,5 @@ setup(
     ],
     packages=['embed_templator'],  # Pkg name
     include_package_data=True,
-    install_requires=['discord.py']
+    install_requires=['disnake']
 )

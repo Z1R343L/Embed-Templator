@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Union, Dict, Any, Iterable, Optional, Callable
 
-import discord
-from discord.ext import commands
+import disnake
+from disnake.ext import commands
 
 from .exceptions import (
     NotInitializedError,
@@ -11,10 +11,24 @@ from .exceptions import (
     MissingContextError
 )
 
-Bot: Optional[Union[commands.Bot, discord.Client]]
+Bot: Optional[
+    Union[
+        commands.Bot,
+        commands.AutoShardedBot,
+        commands.InteractionBot,
+        commands.AutoShardedInteractionBot,
+        disnake.Client
+    ]
+]
 
-
-class Embed(discord.Embed):
+ctxLike: Optional[
+    Union[
+        commands.Context,
+        commands.ApplicationCommandInteraction,
+        disnake.MessageInteraction
+    ]
+]
+class Embed(disnake.Embed):
     """Embed wrapping of discord.Embed class."""
 
     auto_author: bool = False
@@ -44,7 +58,7 @@ class Embed(discord.Embed):
         cls.default_args.update(kwargs)
         cls.auto_author = auto_author
 
-    def __init__(self, ctx: Optional[discord.Context] = None, **kwargs):
+    def __init__(self, ctx: ctxLike = None, **kwargs):
         """Initialise discord embed, set default bot color and
             set dynamic footer if ctx is passed.
 
